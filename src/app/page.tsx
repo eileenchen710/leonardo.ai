@@ -27,6 +27,13 @@ import { GET_ANIME_LIST } from '../../src/graphql/queries';
     image: string;
   }
 
+  type AniListAnime = {
+    id: number;
+    title: { romaji?: string; english?: string; native?: string };
+    description?: string;
+    coverImage?: { large?: string };
+  };
+
 export default function Home() {
   const { isOpen: isUserModalOpen, onOpen: onUserModalOpen, onClose: onUserModalClose } = useDisclosure();
   const { isOpen: isItemModalOpen, onOpen: onItemModalOpen, onClose: onItemModalClose } = useDisclosure();
@@ -74,7 +81,7 @@ export default function Home() {
           {loading && <Text>Loading...</Text>}
           {error && <Text color="red.500">Error: {error.message}</Text>}
           <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={4}>
-            {items.map((anime: any) => {
+            {items.map((anime: AniListAnime) => {
               const mappedItem: Item = {
                 id: anime.id,
                 title: anime.title?.romaji || anime.title?.english || anime.title?.native || 'No Title',
