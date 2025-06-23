@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./Providers";
+import UserGate from "./UserGate";
 
 export const metadata: Metadata = {
   title: "Next.js with ChakraUI",
@@ -15,7 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <UserGate>{children}</UserGate>
+        </Providers>
+        <footer style={{ textAlign: 'center', color: '#888', fontSize: '0.9rem', marginTop: '2rem', padding: '1rem 0' }}>
+          Challenge version: v3.5
+        </footer>
       </body>
     </html>
   );

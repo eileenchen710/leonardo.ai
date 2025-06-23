@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js AniList Demo
 
-## Getting Started
+This project is a Next.js app that fetches and displays anime data from the AniList GraphQL API.
 
-First, run the development server:
+## API Used
+
+All anime data comes from the official AniList GraphQL API:
+
+https://graphql.anilist.co
+
+## How to Run
+
+Clone this repo, then install dependencies and start the dev server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install && npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features & Implementation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **AniList Data Integration**: Uses Apollo Client to fetch anime data from AniList. The GraphQL queries are in `src/graphql/queries.ts`.
+- **Responsive Layout**: The homepage shows anime cards in a responsive grid. It adapts to your screen size, so you get more columns on desktop and fewer on mobile.
+- **User Gate**: When you first visit, a modal pops up and asks for your username and position. This info is saved in localStorage, so you don't have to enter it every time. You can also edit your info later from the top right corner.
+- **Pagination**: You can flip through pages of anime using the pagination controls at the bottom.
+- **Accessibility**: All form fields and buttons have `aria-label` for better accessibility.
+- **Loading & Error States**: The UI shows a loading spinner while fetching data, and displays error messages if something goes wrong.
+- **Form Validation**: The user info modal checks that both username and position are filled in before you can submit.
+- **Footer**: There's a simple footer at the bottom of every page showing the challenge version (v3.5).
 
-## Learn More
+## Notes
 
-To learn more about Next.js, take a look at the following resources:
+- All anime info is live from AniList, so you always see up-to-date data.
+- The project uses Chakra UI for styling and layout.
+- You can find the main logic in `src/app/page.tsx`, `src/app/UserGate.tsx`, and `src/graphql/queries.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
