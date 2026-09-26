@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-18">
       <div className="grid-lines pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_75%)]" />
-      <div className="ember-glow pointer-events-none absolute inset-x-0 bottom-0 h-2/3" />
+      <div className="ember-glow pointer-events-none absolute inset-x-0 top-[30%] bottom-[8%]" />
 
       {/* production stage index */}
           <ol className="absolute right-6 top-[62%] hidden -translate-y-1/2 space-y-2 text-[11px] min-[1400px]:block" aria-hidden="true">
@@ -35,7 +35,7 @@ export default function Hero() {
             ))}
           </ol>
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-        <div className="pt-10 text-center md:pt-12">
+        <div className="pt-8 text-center md:pt-10">
           <span className="inline-block rounded-full border border-line bg-panel/70 px-4 py-1.5 text-xs tracking-wide text-bone/80">
             {site.tagline}
           </span>
@@ -49,7 +49,7 @@ export default function Hero() {
         </div>
 
         {/* Plate stage */}
-        <div className="relative mx-auto mt-8 h-[340px] max-w-6xl sm:h-[420px] md:mt-4 md:h-[500px]">
+        <div className="relative mx-auto mt-2 h-[380px] max-w-6xl sm:h-[460px] md:-mt-4 md:h-[560px]">
           {/* orbit arcs */}
           <svg
             className="pointer-events-none absolute inset-0 hidden h-full w-full md:block"
@@ -65,55 +65,42 @@ export default function Hero() {
           <ChipColumn items={heroChips.left} side="left" />
           <ChipColumn items={heroChips.right} side="right" />
 
-          {/* plate */}
-          <div className="absolute left-1/2 top-4 w-[320px] -translate-x-1/2 sm:w-[400px] md:top-8 md:w-[520px]">
-            <div className="relative aspect-square rounded-full bg-[#141413] p-3 shadow-[0_40px_120px_-20px_rgba(0,0,0,0.9),inset_0_0_0_1px_rgba(255,255,255,0.06)] md:p-5">
-              <div key={i} className="plate-fade h-full w-full">
-                <Photo
-                  src={dish.image}
-                  alt={dish.title}
-                  eager
-                  className="h-full w-full rounded-full"
-                  imgClassName="scale-[1.08]"
-                />
+          {/* dish — feathered edges, caption sits on the photo */}
+          <div className="absolute left-1/2 top-0 aspect-square w-[380px] -translate-x-1/2 sm:w-[460px] md:w-[560px]">
+            <div key={i} className="plate-fade h-full w-full">
+              <Photo src={dish.image} alt={dish.title} eager className="plate-feather h-full w-full" imgClassName="scale-[1.04]" />
+            </div>
+            <div className="absolute inset-x-[14%] bottom-[16%] text-center" aria-live="polite">
+              <p className="font-display text-lg text-bone [text-shadow:0_2px_16px_rgba(0,0,0,0.85)] md:text-xl">{dish.title}</p>
+              <p className="mt-1 text-sm text-bone/70 [text-shadow:0_1px_10px_rgba(0,0,0,0.9)]">{dish.line}</p>
+              <div className="mt-4 flex justify-center gap-2">
+                {heroDishes.map((d, idx) => (
+                  <button
+                    key={d.title}
+                    onClick={() => setI(idx)}
+                    aria-label={`Show ${d.title}`}
+                    className={`h-1 rounded-full transition-all ${idx === i ? "w-8 bg-ember" : "w-3 bg-bone/30"}`}
+                  />
+                ))}
               </div>
-              <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_0_60px_20px_rgba(10,10,9,0.75)]" />
             </div>
           </div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent" />
 
           {/* arrows */}
           <button
             onClick={() => go(-1)}
             aria-label="Previous dish"
-            className="absolute bottom-24 left-0 grid h-11 w-11 place-items-center rounded-full border border-line bg-panel/80 text-bone/80 backdrop-blur transition hover:border-ember/60 hover:text-bone md:left-[12%]"
+            className="absolute bottom-28 left-0 grid h-11 w-11 place-items-center rounded-full border border-line bg-panel/80 text-bone/80 backdrop-blur transition hover:border-ember/60 hover:text-bone md:left-[12%]"
           >
             <Arrow className="h-4 w-4 rotate-180" />
           </button>
           <button
             onClick={() => go(1)}
             aria-label="Next dish"
-            className="absolute bottom-24 right-0 grid h-11 w-11 place-items-center rounded-full border border-line bg-panel/80 text-bone/80 backdrop-blur transition hover:border-ember/60 hover:text-bone md:right-[12%]"
+            className="absolute bottom-28 right-0 grid h-11 w-11 place-items-center rounded-full border border-line bg-panel/80 text-bone/80 backdrop-blur transition hover:border-ember/60 hover:text-bone md:right-[12%]"
           >
             <Arrow className="h-4 w-4" />
           </button>
-
-        </div>
-
-        {/* caption */}
-        <div className="relative -mt-10 pb-16 text-center md:pb-20" aria-live="polite">
-          <p className="font-display text-lg text-bone/90 md:text-xl">{dish.title}</p>
-          <p className="mt-1 text-sm text-mute">{dish.line}</p>
-          <div className="mt-5 flex justify-center gap-2">
-            {heroDishes.map((d, idx) => (
-              <button
-                key={d.title}
-                onClick={() => setI(idx)}
-                aria-label={`Show ${d.title}`}
-                className={`h-1 rounded-full transition-all ${idx === i ? "w-8 bg-ember" : "w-3 bg-bone/20"}`}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </section>

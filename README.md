@@ -13,8 +13,8 @@ npm run build
 All copy, figures, certifications and photo URLs live in `src/content.ts`.
 Contact email is `site.email`; the company address is intentionally left out for now.
 
-Photography is hot-linked from the Unsplash CDN (free commercial licence). If a photo fails to load,
-its frame falls back to a dark panel, so the layout never breaks.
+Photography comes from Unsplash (free commercial licence) and is stored locally as compressed WebP
+in `public/images/`. If a photo fails to load, its frame falls back to a dark panel, so the layout never breaks.
 
 ## Deploying on Vercel
 

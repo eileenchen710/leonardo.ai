@@ -39,9 +39,9 @@ body {
 
 .ember-glow {
   background: radial-gradient(
-    60% 50% at 50% 100%,
-    rgba(242, 106, 27, 0.18) 0%,
-    rgba(242, 106, 27, 0) 70%
+    closest-side at 50% 50%,
+    rgba(242, 106, 27, 0.16) 0%,
+    rgba(242, 106, 27, 0) 100%
   );
 }
 
@@ -101,4 +101,13 @@ details[open] .faq-icon {
     opacity: 1;
     transform: none;
   }
+}
+
+/* Hero dish: soft feathered edge instead of a hard circular crop */
+.plate-feather {
+  -webkit-mask-image: radial-gradient(closest-side, #000 52%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 52%, rgba(0, 0, 0, 0.6) 72%, transparent 100%);
+}
+.plate-feather.photo {
+  background: transparent;
 }

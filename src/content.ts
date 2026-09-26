@@ -1,15 +1,15 @@
 // All copy, figures and photography live here so the site can be updated
 // without touching layout code.
 
-const unsplash = (id: string, w = 1600) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+// Unsplash photos (free commercial licence), stored locally as compressed WebP in public/images.
+const photo = (id: string) => `/images/${id}.webp`;
 
 export const site = {
   name: "AIKO",
   full: "AI Kitchen Operations",
   tagline: "Smarter Kitchens, Better Operations.",
   taglineZh: "智慧厨房，高效运营",
-  email: "hello@aiko.kitchen",
+  email: "info@aikokitchen.com.au",
   phone: "",
   // Address intentionally omitted until the facility details are confirmed.
   address: "",
@@ -28,17 +28,17 @@ export const heroDishes = [
   {
     title: "Chargrilled Chicken, Herb Quinoa & Seasonal Greens",
     line: "Ready meal · 42,000 portions this week",
-    image: unsplash("1546069901-ba9599a7e63c", 1400),
+    image: photo("1546069901-ba9599a7e63c"),
   },
   {
     title: "Seared Salmon, Charred Lemon & Garden Vegetables",
     line: "Chilled entrée · Batch released in 38 min",
-    image: unsplash("1467003909585-2f8a72700288", 1400),
+    image: photo("1467003909585-2f8a72700288"),
   },
   {
     title: "Slow-Cooked Beef, Roasted Roots & Jus",
     line: "Cook-chill · Yield variance 0.6%",
-    image: unsplash("1504674900247-0877df9cc836", 1400),
+    image: photo("1504674900247-0877df9cc836"),
   },
 ];
 
@@ -62,7 +62,7 @@ export const about = {
     "AIKO is a food processing and central kitchen operator. We prepare ready meals, sauces, portioned proteins and prepared produce for restaurant groups, retailers and institutional caterers — at volumes a single kitchen can't reach, and to a standard that has to be the same on the ten-thousandth portion as on the first.",
     "What sets us apart is how the kitchen is run. Every order, recipe, temperature reading and batch record flows through our own operations platform. Forecasts decide what gets cooked, sensors confirm how it was cooked, and the records follow each product all the way to our partners' doors.",
   ],
-  image: unsplash("1556910103-1c02745aae4d", 1400),
+  image: photo("1556910103-1c02745aae4d"),
   imageAlt: "Chef preparing ingredients in a professional kitchen",
   points: [
     "Purpose-built, temperature-zoned production facility",
@@ -121,7 +121,7 @@ export const platform = {
     { step: "Verify", text: "Automated checks against every critical limit." },
     { step: "Deliver", text: "Chilled dispatch with full batch records." },
   ],
-  image: unsplash("1551288049-bebda4e38f71", 1400),
+  image: photo("1551288049-bebda4e38f71"),
 };
 
 export const capabilities = {
@@ -131,22 +131,22 @@ export const capabilities = {
     {
       name: "Ready Meals",
       text: "Chilled and frozen cook-chill meals, from single-serve lunches to multi-component entrées.",
-      image: unsplash("1512621776951-a57141f2eefd", 900),
+      image: photo("1512621776951-a57141f2eefd"),
     },
     {
       name: "Sauces, Stocks & Bases",
       text: "Kettle-cooked sauces, dressings and soup bases in pouch, tub or bulk formats.",
-      image: unsplash("1473093295043-cdd812d0e601", 900),
+      image: photo("1473093295043-cdd812d0e601"),
     },
     {
       name: "Portioned Proteins",
       text: "Marinated, sous-vide and chargrilled proteins, portioned to exact weights.",
-      image: unsplash("1555939594-58d7cb561ad1", 900),
+      image: photo("1555939594-58d7cb561ad1"),
     },
     {
       name: "Prepared Produce",
       text: "Washed, cut and blanched vegetables prepared to your kitchen's specification.",
-      image: unsplash("1498837167922-ddd27525d352", 900),
+      image: photo("1498837167922-ddd27525d352"),
     },
   ],
   services: [
@@ -186,7 +186,7 @@ export const quality = {
     { value: "2,400+", label: "Automated CCP checks logged every day" },
     { value: "100%", label: "Batches released with a complete digital record" },
   ],
-  image: unsplash("1581299894007-aaa50297cf16", 1400),
+  image: photo("1581299894007-aaa50297cf16"),
 };
 
 export const partners = {
@@ -207,9 +207,9 @@ export const partners = {
     who: "Head of Culinary, multi-site restaurant group",
   },
   gallery: [
-    unsplash("1414235077428-338989a2e8c0", 900),
-    unsplash("1565299624946-b28f40a0ae38", 900),
-    unsplash("1540189549336-e6e99c3679fe", 900),
+    photo("1414235077428-338989a2e8c0"),
+    photo("1565299624946-b28f40a0ae38"),
+    photo("1540189549336-e6e99c3679fe"),
   ],
 };
 
