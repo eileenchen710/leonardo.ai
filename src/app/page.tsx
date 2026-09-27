@@ -4,7 +4,7 @@ import Photo from "@/components/Photo";
 import Reveal from "@/components/Reveal";
 import Logo from "@/components/Logo";
 import ContactForm from "@/components/ContactForm";
-import { about, capabilities, faqs, nav, partners, platform, quality, site, stats } from "@/content";
+import { about, capabilities, faqs, nav, partners, platform, prep, quality, site, stats } from "@/content";
 
 export default function Home() {
   return (
@@ -14,6 +14,7 @@ export default function Home() {
         <Hero />
         <Stats />
         <About />
+        <Prep />
         <Platform />
         <Capabilities />
         <Quality />
@@ -102,6 +103,50 @@ function About() {
               ))}
             </ul>
           </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Prep() {
+  const { theirs, ours } = prep.split;
+  return (
+    <section id="prep" className="scroll-mt-20 border-t border-line py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <SectionTitle eyebrow={prep.eyebrow} title={prep.title} intro={prep.intro} />
+
+        <Reveal className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-line bg-line lg:grid-cols-[1fr_2fr]">
+          <div className="bg-coal p-7 md:p-9">
+            <div className="text-xs uppercase tracking-[0.18em] text-mute">{theirs.label}</div>
+            <ol className="mt-6 flex flex-wrap gap-3">
+              {theirs.steps.map((s) => (
+                <li key={s} className="rounded-full border border-ember bg-ember px-4 py-2 text-sm text-ink">
+                  {s}
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="bg-ink p-7 md:p-9">
+            <div className="text-xs uppercase tracking-[0.18em] text-ember">{ours.label}</div>
+            <ol className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {ours.steps.map((s, i) => (
+                <li key={s} className="flex items-center gap-3 rounded-2xl border border-line bg-panel px-4 py-3 text-sm text-bone/85">
+                  <span className="font-display text-xs text-mute">0{i + 1}</span>
+                  {s}
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Reveal>
+
+        <div className="mt-6 grid gap-5 md:grid-cols-3">
+          {prep.lines.map((l, i) => (
+            <Reveal key={l.name} delay={i * 80} className="rounded-3xl border border-line bg-coal p-7 md:p-8">
+              <h3 className="font-display text-lg font-medium">{l.name}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-bone/60">{l.text}</p>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

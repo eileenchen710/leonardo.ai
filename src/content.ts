@@ -9,7 +9,7 @@ export const site = {
   full: "AI Kitchen Operations",
   tagline: "Smarter Kitchens, Better Operations.",
   taglineZh: "智慧厨房，高效运营",
-  email: "info@aikokitchen.com.au",
+  email: "info@aikos.com.au",
   phone: "",
   // Address intentionally omitted until the facility details are confirmed.
   address: "",
@@ -17,6 +17,7 @@ export const site = {
 
 export const nav = [
   { label: "About", href: "#about" },
+  { label: "Prep", href: "#prep" },
   { label: "Platform", href: "#platform" },
   { label: "Capabilities", href: "#capabilities" },
   { label: "Quality", href: "#quality" },
@@ -68,6 +69,36 @@ export const about = {
     "Purpose-built, temperature-zoned production facility",
     "Chef-led product development, engineered for scale",
     "Operations platform developed in-house",
+    "Automated and semi-automated raw-material processing",
+  ],
+};
+
+// Labour-saving prep: we take raw-material processing off our partners' kitchens.
+export const prep = {
+  eyebrow: "Raw-Material Processing",
+  title: "Your venues marinate and plate. We do the rest.",
+  intro:
+    "Labour is the hardest cost to control in any kitchen. AIKO takes the most labour-intensive work — washing, peeling, cutting, slicing and portioning raw ingredients — off your team, on a production line that combines automated equipment with semi-automated, operator-guided stations.",
+  split: {
+    theirs: { label: "In your kitchen", steps: ["Marinate", "Cook", "Plate"] },
+    ours: {
+      label: "At AIKO",
+      steps: ["Receive & inspect", "Wash & sanitise", "Peel & trim", "Cut, slice & dice", "Portion & weigh", "Chill & pack"],
+    },
+  },
+  lines: [
+    {
+      name: "Ready-to-cook vegetables",
+      text: "Washed, peeled and cut to your spec — diced, julienned, wedged or whole-trimmed — delivered chilled and ready for the pan.",
+    },
+    {
+      name: "Sliced & portioned meat",
+      text: "Beef, pork, chicken and lamb sliced, diced or minced to exact thickness and weight, ready to marinate.",
+    },
+    {
+      name: "Automation where it pays, people where it matters",
+      text: "Machines handle high-volume washing, slicing and weighing; trained operators handle trimming, grading and anything that needs judgement.",
+    },
   ],
 };
 
@@ -145,7 +176,7 @@ export const capabilities = {
     },
     {
       name: "Prepared Produce",
-      text: "Washed, cut and blanched vegetables prepared to your kitchen's specification.",
+      text: "Washed, cut and blanched vegetables and sliced meats, prepared to your kitchen's specification.",
       image: photo("1498837167922-ddd27525d352"),
     },
   ],
@@ -221,6 +252,10 @@ export const faqs = [
   {
     q: "How does AI actually improve food production?",
     a: "Mainly in planning and verification. Our forecasting models decide how much to produce, scheduling software sequences the work, and sensors and cameras check every critical step. Chefs still create and approve every recipe — the platform makes sure it is reproduced exactly.",
+  },
+  {
+    q: "Can you supply prepped, ready-to-cook ingredients?",
+    a: "Yes. We supply washed and cut vegetables and sliced, diced or portioned meat to your specification. Your team only needs to marinate or plate — the washing, peeling, cutting and portioning is done on our automated and semi-automated processing lines.",
   },
   {
     q: "What are your minimum order quantities?",
